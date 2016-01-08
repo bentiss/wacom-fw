@@ -1,0 +1,3 @@
+[submodule "hid-replay"]
+	path = hid-replay
+	url = ssh://git@github.com/bentiss/hid-replay.git
