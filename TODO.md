@@ -5,7 +5,7 @@
 
 ## Missing features
 - support of the PADs buttons for bamboos tablets (see Bamboo later)
-- support for LEDs (in the descriptors and matching support in the kernel)
+- ~~support for LEDs (in the descriptors and matching support in the kernel)~~
 - ~~support for versioning embedded in the firmware directly (see versioning, later)~~
 - ~~overwrite the name of the devices through the firmware~~
 - tag which report descriptor is for which interface (touch, pad, pen) (see tagging report descriptors later)
