@@ -228,6 +228,8 @@ intuos_Pro_S_touch = Wacom(
 	logical_maxs = {
 		"X": 4096,
 		"Y": 4096,
+		"Width": 4096,
+		"Height": 4096,
 	},
 	physical_mins = {
 	},
