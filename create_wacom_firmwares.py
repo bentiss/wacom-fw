@@ -20,6 +20,8 @@
 
 import os
 import sys
+import subprocess
+import shlex
 sys.path.append(os.path.join(os.getcwd(), "hid-replay", "tools"))
 import hid
 import parse_rdesc
@@ -163,6 +165,19 @@ class Wacom(devices.Wacom):
 			self.rdesc.consume(value, i)
 			i += 1
 
+def get_version():
+	process = subprocess.Popen(shlex.split("git describe --tags --dirty=+"),
+				   stdout=subprocess.PIPE,
+				   stderr=subprocess.PIPE)
+	out, err = process.communicate()
+	errcode = process.returncode
+
+	if errcode:
+		return None
+
+	return out.rstrip("\n")
+
+
 def dump_hid(wac_object, outfile, n):
 	outfile.write("D: {0}\n".format(n))
 	outfile.write("N: {0} ".format(wac_object.name))
@@ -175,6 +190,8 @@ def dump_hid(wac_object, outfile, n):
 
 def main():
 	output_dir = "output"
+	version = get_version()
+	print "Will mark the following firmwares with version '{0}'".format(version)
 	if not os.path.exists(output_dir):
 		os.mkdir(output_dir)
 	for items in devices.Wacom.all_items.values():
@@ -185,6 +202,7 @@ def main():
 		f_hid = open(hid_name, "w")
 		print "writing", fw_name, "for",  ", ".join([ o.name for o in items])
 		f_bin = open(fw_name, "wb")
+		write_fw.dump_string("V", version, f_bin)
 		i = 0
 		for o in items:
 			cleaned_object = Wacom(o)

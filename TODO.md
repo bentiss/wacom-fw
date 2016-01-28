@@ -6,7 +6,7 @@
 ## Missing features
 - support of the PADs buttons for bamboos tablets (see Bamboo later)
 - support for LEDs (in the descriptors and matching support in the kernel)
-- support for versioning embedded in the firmware directly (see versioning, later)
+- ~~support for versioning embedded in the firmware directly (see versioning, later)~~
 - overwrite the name of the devices through the firmware
 - tag which report descriptor is for which interface (touch, pad, pen) (see tagging report descriptors later)
 - eventually add other interesting elements not easily described through the report descriptors (like .ovid in wacom_features)
@@ -19,7 +19,7 @@ Bamboo devices have touch support through the Wacom internal touch protocol.
 I was able to map the touch protocol to the current touch kernel recognition engine, but the pads events are interleaved
 whithin the touch events. This doesn't work which means I can not support Bamboos for now.
 
-### Versioning
+### Versioning (done)
 I'd like to provide a versioning mechanism based on git:
 - if there is a tag attached to the current HEAD, I want the firmware to grab this tag athe version
 - if not, I want the firmware to grab the last tag and append the short commit sha.
@@ -28,6 +28,9 @@ I'd like to provide a versioning mechanism based on git:
 The idea is that if the kernel outputs this information, we know exactly which commit produced the firmware.
 We will be able to spot whether or not a user needs updating or not. Also, the good point is that the laziest me will
 not have to keep incrementing versions for each devices at each modification :)
+
+##### Update:
+`git describe --tags --dirty=+` does exactly that :)
 
 ### Tagging report descriptors
 I want to be able to tag which report descriptor is for which interface.

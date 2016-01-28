@@ -22,6 +22,11 @@ import parse_rdesc
 import sys
 import struct
 
+def dump_string(prefix, string, dst):
+	dst.write(struct.pack('c', prefix))
+	dst.write(struct.pack('i', len(string) + 1)) # for terminating 0
+	dst.write(struct.pack('{0}s'.format(len(string) + 1), string))
+
 def dump_rdesc(data, prefix, dst):
 	if len(prefix) > 1:
 		raise Exception, "Invalid prefix: %s"%prefix
