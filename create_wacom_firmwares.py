@@ -22,6 +22,7 @@ import os
 import sys
 import subprocess
 import shlex
+import re
 sys.path.append(os.path.join(os.getcwd(), "hid-replay", "tools"))
 import hid
 import parse_rdesc
@@ -51,6 +52,19 @@ class Wacom(devices.Wacom):
 
 	def hid_filename(self):
 		return "0003_056a_{0:04x}.hid".format(self.product_id)
+
+	def get_canonical_name(self):
+		name = self.name
+		m = re.match(r"(.*) Pen$", name)
+		if m:
+			name = m.group(1)
+		m = re.match(r"(.*) Pad$", name)
+		if m:
+			name = m.group(1)
+		m = re.match(r"(.*) Finger$", name)
+		if m:
+			name = m.group(1)
+		return name
 
 	def lower_dict(self, dictionary):
 		d = {}
@@ -203,6 +217,7 @@ def main():
 		print "writing", fw_name, "for",  ", ".join([ o.name for o in items])
 		f_bin = open(fw_name, "wb")
 		write_fw.dump_string("V", version, f_bin)
+		write_fw.dump_string("N", cleaned_object.get_canonical_name(), f_bin)
 		i = 0
 		for o in items:
 			cleaned_object = Wacom(o)
