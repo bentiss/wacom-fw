@@ -54,7 +54,7 @@ You need quite a little setup before being able to use those firmwares:
   - install it
   - reboot
 
-Then, copy all the firmwares (the *.bin in output) in /lib/firmwares/hid (you need to create this directory first).
+Then, copy all the firmwares (the *.bin in output) in /lib/firmware/hid (you need to create this directory first).
 
 You need to unplug/replug the tablet, and hopefully the kernel will fetch the firmware(s) and the tablet should work as before :)
 
