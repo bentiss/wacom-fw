@@ -215,17 +215,17 @@ def main():
 		print "dumping", hid_name, "for",  ", ".join([ o.name for o in items])
 		f_hid = open(hid_name, "w")
 		print "writing", fw_name, "for",  ", ".join([ o.name for o in items])
-		f_bin = open(fw_name, "wb")
-		write_fw.dump_string("V", version, f_bin)
-		write_fw.dump_string("N", cleaned_object.get_canonical_name(), f_bin)
+		f_bin = write_fw.FW(fw_name)
+		f_bin.dump_string("V", version)
+		f_bin.dump_string("N", cleaned_object.get_canonical_name())
 		i = 0
 		for o in items:
 			cleaned_object = Wacom(o)
 			dump_hid(cleaned_object, f_hid, i)
 			if cleaned_object.original_reports:
-				write_fw.dump_rdesc(cleaned_object.original_reports, "O", f_bin)
+				f_bin.dump_rdesc(cleaned_object.original_reports, "O")
 			data = str(cleaned_object.rdesc.size()) + " " + cleaned_object.rdesc.data_txt()
-			write_fw.dump_rdesc(data, "R", f_bin)
+			f_bin.dump_rdesc(data, "R")
 			i += 1
 		f_hid.close()
 		f_bin.close()

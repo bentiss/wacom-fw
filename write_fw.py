@@ -22,21 +22,33 @@ import parse_rdesc
 import sys
 import struct
 
-def dump_string(prefix, string, dst):
-	dst.write(struct.pack('c', prefix))
-	dst.write(struct.pack('i', len(string) + 1)) # for terminating 0
-	dst.write(struct.pack('{0}s'.format(len(string) + 1), string))
+class FW(object):
+	def __init__(self, filename):
+		self.filename = filename
+		self.fd = open(filename, "wb")
 
-def dump_rdesc(data, prefix, dst):
-	if len(prefix) > 1:
-		raise Exception, "Invalid prefix: %s"%prefix
-	rdesc = parse_rdesc.parse_rdesc(data, None)
-	if not rdesc:
-		raise IOError
-	dst.write(struct.pack('c', prefix))
-	dst.write(struct.pack('i', rdesc.size()))
-	for b in rdesc.data():
-		dst.write(struct.pack('B', b))
+	def write(self, data):
+		self.fd.write(data)
+
+	def dump_string(self, prefix, string):
+		self.write(struct.pack('c', prefix))
+		self.write(struct.pack('i', len(string) + 1)) # for terminating 0
+		self.write(struct.pack('{0}s'.format(len(string) + 1), string))
+
+	def dump_rdesc(self, data, prefix):
+		if len(prefix) > 1:
+			raise Exception, "Invalid prefix: %s"%prefix
+		rdesc = parse_rdesc.parse_rdesc(data, None)
+		if not rdesc:
+			raise IOError
+		self.write(struct.pack('c', prefix))
+		self.write(struct.pack('i', rdesc.size()))
+		for b in rdesc.data():
+			self.write(struct.pack('B', b))
+
+	def close(self):
+		self.fd.close()
+		self.fd = None
 
 def main():
 	output = open("out.bin", "wb")
