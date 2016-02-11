@@ -10,7 +10,7 @@
 - ~~overwrite the name of the devices through the firmware~~
 - tag which report descriptor is for which interface (touch, pad, pen) (see tagging report descriptors later)
 - eventually add other interesting elements not easily described through the report descriptors (like .ovid in wacom_features)
-- add a checksum mechanism to prevent alteration/misreading of firmwares (see checksums)
+- ~~add a checksum mechanism to prevent alteration/misreading of firmwares (see checksums)~~
 - make sure we are forward compatible (see forward compatibility)
 - make sure there are no attacks possible
 
@@ -41,7 +41,7 @@ This work fine for actual USB devices. However, for devices connected through th
 information we have is the PID of the connected device. It would be good to be able to fetch from the firmware the "touch"
 report descriptor, or the "pad" one, or the "pen" one.
 
-### Checksums
+### Checksums (done)
 The idea of having a checksum should prevent a corrupted firmware to be loaded and used by the kernel.
 People should be able to alter the firmware, but this should result in the version not being similar to a released one.
 So I think we should force people to use this project to make any modifications in the firmwares so we can track which

@@ -21,14 +21,17 @@
 import parse_rdesc
 import sys
 import struct
+import binascii
 
 class FW(object):
 	def __init__(self, filename):
 		self.filename = filename
 		self.fd = open(filename, "wb")
+		self.content = b''
 
 	def write(self, data):
 		self.fd.write(data)
+		self.content += data
 
 	def dump_string(self, prefix, string):
 		self.write(struct.pack('c', prefix))
@@ -45,6 +48,11 @@ class FW(object):
 		self.write(struct.pack('i', rdesc.size()))
 		for b in rdesc.data():
 			self.write(struct.pack('B', b))
+
+	def append_crc(self):
+		# match the in-kernel crc32 function
+		crc = ~binascii.crc32(self.content, 0xffffffff) & 0xffffffff
+		self.fd.write(struct.pack('I', crc))
 
 	def close(self):
 		self.fd.close()

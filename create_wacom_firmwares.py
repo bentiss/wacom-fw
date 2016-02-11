@@ -227,6 +227,7 @@ def main():
 			data = str(cleaned_object.rdesc.size()) + " " + cleaned_object.rdesc.data_txt()
 			f_bin.dump_rdesc(data, "R")
 			i += 1
+		f_bin.append_crc()
 		f_hid.close()
 		f_bin.close()
 
