@@ -694,6 +694,42 @@ led_configuration_intuos5 = (
 	0xc0,				# End Collection
 )
 
+led_configuration_intuos5_wl = (
+	0x05, 0x01,			# Usage Page (Generic Desktop)
+	0x09, 0x07,			# Usage (Keypad)
+	0xa1, 0x01,			# Collection (Application)
+
+	0x85, 0x03,			#  Report ID (03)
+	0xa1, 0x00,			#  Collection (Physical)
+
+	0x05, 0xbe,			#   Usage Page (Wacom Custom)
+
+	0x09, 0xff,			#   Usage (Reserved)
+	0x75, 0x08,			#   Report Size (8)
+	0x95, 0x03,			#   Report Count (3)
+	0xb1, 0x01,			#   Feature (Cnst,Arr,Abs)
+
+	0x09, 0x07,			#   Usage (LED Select ID)
+	0x09, 0x08,			#   Usage (Indicator LED Brightness)
+	0x09, 0x0b,			#   Usage (LED Crop Mark Brightness)
+	0x15, 0x00,			#   Logical Minimum (0)
+	0x25, 0x03,			#   Logical Maximum (3)
+	0x75, 0x02,			#   Report Size (2)
+	0x95, 0x03,			#   Report Count (3)
+	0xb1, 0x02,			#   Feature (Data,Var,Abs)
+
+	0x09, 0xff,			#   Usage (Reserved)
+	0x95, 0x01,			#   Report Count (1)
+	0xb1, 0x01,			#   Feature (Cnst,Arr,Abs)
+
+	0x75, 0x08,			#   Report Size (8)
+	0x95, 0x0b,			#   Report Count (8)
+	0xb1, 0x01,			#   Feature (Cnst,Arr,Abs)
+
+	0xc0,				#  End Collection
+	0xc0,				# End Collection
+)
+
 bpt3_touch_msg_header = (
 	0x05, 0x0d,			# Usage Page (Digitizers)
 	0x09, 0x05,			# Usage (Touch Pad)

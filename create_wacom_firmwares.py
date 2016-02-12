@@ -41,6 +41,7 @@ class Wacom(devices.Wacom):
 
 		self.product_id = wac_object.product_id
 		self.original_reports = wac_object.original_reports
+		self.tag = wac_object.tag
 
 		self.rdesc = parse_rdesc.ReportDescriptor()
 		self.raw_rdesc = []
@@ -224,6 +225,8 @@ def main():
 			dump_hid(cleaned_object, f_hid, i)
 			if cleaned_object.original_reports:
 				f_bin.dump_rdesc(cleaned_object.original_reports, "O")
+			if cleaned_object.tag:
+				f_bin.dump_int("T", cleaned_object.tag)
 			data = str(cleaned_object.rdesc.size()) + " " + cleaned_object.rdesc.data_txt()
 			f_bin.dump_rdesc(data, "R")
 			i += 1

@@ -21,10 +21,13 @@
 from descriptors import *
 
 class Wacom(object):
+	tag_pen = 1
+	tag_touch = 2
 	all_items = {}
 	def __init__(self, name, product_id, reports,
 			logical_mins, logical_maxs,
-			physical_mins, physical_maxs, original_reports = None):
+			physical_mins, physical_maxs, original_reports = None,
+			tag = None):
 		self.name = name
 		self.product_id = product_id
 		self.reports = reports
@@ -33,6 +36,7 @@ class Wacom(object):
 		self.logical_maxs = logical_maxs
 		self.physical_mins = physical_mins
 		self.physical_maxs = physical_maxs
+		self.tag = tag
 		if not Wacom.all_items.has_key(product_id):
 			Wacom.all_items[product_id] = []
 		Wacom.all_items[product_id].append(self)
@@ -209,6 +213,41 @@ intuos_Pro_S_pen = Wacom(
 	original_reports = "234 06 0d ff 09 01 a1 01 85 02 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 03 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 c0 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 02 09 00 95 01 b1 02 85 03 09 00 95 09 b1 02 85 05 09 00 95 08 b1 02 85 07 09 00 95 0f b1 02 85 08 09 00 95 04 b1 02 85 0a 09 00 95 02 b1 02 85 0b 09 00 95 01 b1 02 85 20 09 00 95 08 b1 02 85 04 09 00 95 01 b1 02 85 0d 09 00 95 01 b1 02 85 cc 09 00 95 02 b1 02 85 30 09 00 95 1f b1 02 85 31 09 00 95 04 b1 02 85 15 09 00 95 0a b1 02 85 14 09 00 95 0f b1 02 85 16 09 00 95 01 b1 02 85 40 09 00 95 02 b1 02 85 dd 09 00 95 01 b1 02 85 b0 09 00 95 02 b1 02 85 b1 09 00 96 09 01 b1 02 85 b2 09 00 96 08 01 b1 02 85 b3 09 00 95 01 b1 02 c0"
 )
 
+intuos_Pro_S_pen_wl = Wacom(
+	name = "Wacom Intuos Pro S Pen",
+	product_id = 0x0314,
+	reports = (
+		boot_mouse_collection,
+		device_id_report_intuos3,
+		generic_stylus_intuos4,
+		airbrush_report_inutos4,
+		artpen_report_intuos4,
+		five_button_mouse_report_intuos4,
+		express_keys_touch_ring_intuos5_s,
+		led_configuration_intuos5_wl,
+	),
+	logical_mins = {
+		"Z": -900,
+	},
+	logical_maxs = {
+		"X": 31496,
+		"Y": 19685,
+		"Z": 899,
+		"Wheel": 1023,
+		"Tip Pressure": 2047,
+		"Altitude": 63,
+		"X Tilt": 127,
+		"Y Tilt": 127,
+	},
+	physical_mins = {
+	},
+	physical_maxs = {
+		"X": 1575,
+		"Y": 984,
+	},
+	tag = Wacom.tag_pen,
+)
+
 intuos_Pro_S_touch = Wacom(
 	name = "Wacom Intuos Pro S Finger",
 	product_id = 0x0314,
@@ -238,6 +277,37 @@ intuos_Pro_S_touch = Wacom(
 		"Y": 984,
 	},
 	original_reports = "23 06 00 ff 09 01 a1 01 85 02 09 01 15 00 26 ff 00 75 08 95 3f 81 02 c0"
+)
+
+intuos_Pro_S_touch_wl = Wacom(
+	name = "Wacom Intuos Pro S Finger",
+	product_id = 0x0314,
+	reports = (
+		bpt3_touch_msg_header,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_finger,
+		bpt3_touch_msg_footer,
+	),
+	logical_mins = {
+	},
+	logical_maxs = {
+		"X": 4096,
+		"Y": 4096,
+		"Width": 4096,
+		"Height": 4096,
+	},
+	physical_mins = {
+	},
+	physical_maxs = {
+		"X": 1575,
+		"Y": 984,
+	},
+	tag = Wacom.tag_touch,
 )
 
 bambo_cth470_S_pen = Wacom(

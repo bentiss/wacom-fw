@@ -8,7 +8,7 @@
 - ~~support for LEDs (in the descriptors and matching support in the kernel)~~
 - ~~support for versioning embedded in the firmware directly (see versioning, later)~~
 - ~~overwrite the name of the devices through the firmware~~
-- tag which report descriptor is for which interface (touch, pad, pen) (see tagging report descriptors later)
+- ~~tag which report descriptor is for which interface (touch, pad, pen) (see tagging report descriptors later)~~
 - eventually add other interesting elements not easily described through the report descriptors (like .ovid in wacom_features)
 - ~~add a checksum mechanism to prevent alteration/misreading of firmwares (see checksums)~~
 - make sure we are forward compatible (see forward compatibility)
@@ -32,7 +32,7 @@ not have to keep incrementing versions for each devices at each modification :)
 ##### Update:
 `git describe --tags --dirty=+` does exactly that :)
 
-### Tagging report descriptors
+### Tagging report descriptors (done)
 I want to be able to tag which report descriptor is for which interface.
 The current state is that we match the current report descriptor provided by the hardware to check whether or not the current
 one we are processing is a match. 

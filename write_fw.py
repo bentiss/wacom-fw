@@ -49,6 +49,13 @@ class FW(object):
 		for b in rdesc.data():
 			self.write(struct.pack('B', b))
 
+	def dump_int(self, prefix, value):
+		if len(prefix) > 1:
+			raise Exception, "Invalid prefix: %s"%prefix
+		self.write(struct.pack('c', prefix))
+		self.write(struct.pack('i', 4))
+		self.write(struct.pack('i', value))
+
 	def append_crc(self):
 		# match the in-kernel crc32 function
 		crc = ~binascii.crc32(self.content, 0xffffffff) & 0xffffffff
