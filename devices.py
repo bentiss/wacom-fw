@@ -53,12 +53,12 @@ cintiq_22HD_pen = Wacom(
 		express_keys_touch_strip_cintiq_22HD,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 95840,
 		"Y": 65600,
-		"Z": 899,
+		"Twist": 899,
 		"RX": 4096,
 		"RY": 4096,
 		"Wheel": 1023,
@@ -68,8 +68,13 @@ cintiq_22HD_pen = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 4792,
 		"Y": 2713,
 	}
@@ -87,12 +92,12 @@ cintiq_22HDT_pen = Wacom(
 		express_keys_touch_strip_cintiq_22HD,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 95840,
 		"Y": 65600,
-		"Z": 899,
+		"Twist": 899,
 		"RX": 4096,
 		"RY": 4096,
 		"Wheel": 1023,
@@ -102,8 +107,13 @@ cintiq_22HDT_pen = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 4792,
 		"Y": 2713,
 	}
@@ -121,12 +131,12 @@ cintiq_24HDT_pen = Wacom(
 		express_keys_touch_ring_cintiq_24HD,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 104480,
 		"Y": 65600,
-		"Z": 899,
+		"Twist": 899,
 		"RX": 4096,
 		"RY": 4096,
 		"Wheel": 1023,
@@ -136,8 +146,13 @@ cintiq_24HDT_pen = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 5224,
 		"Y": 3280,
 	}
@@ -157,12 +172,12 @@ intuos_5_S_pen = Wacom(
 		led_configuration_intuos5,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 31496,
 		"Y": 19685,
-		"Z": 899,
+		"Twist": 899,
 		"Wheel": 1023,
 		"Tip Pressure": 2047,
 		"Altitude": 63,
@@ -170,8 +185,13 @@ intuos_5_S_pen = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 1575,
 		"Y": 984,
 	},
@@ -192,12 +212,12 @@ intuos_Pro_S_pen = Wacom(
 		led_configuration_intuos5,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 31496,
 		"Y": 19685,
-		"Z": 899,
+		"Twist": 899,
 		"Wheel": 1023,
 		"Tip Pressure": 2047,
 		"Altitude": 63,
@@ -205,8 +225,13 @@ intuos_Pro_S_pen = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 1575,
 		"Y": 984,
 	},
@@ -227,12 +252,12 @@ intuos_Pro_S_pen_wl = Wacom(
 		led_configuration_intuos5_wl,
 	),
 	logical_mins = {
-		"Z": -900,
+		"Twist": -900,
 	},
 	logical_maxs = {
 		"X": 31496,
 		"Y": 19685,
-		"Z": 899,
+		"Twist": 899,
 		"Wheel": 1023,
 		"Tip Pressure": 2047,
 		"Altitude": 63,
@@ -240,8 +265,13 @@ intuos_Pro_S_pen_wl = Wacom(
 		"Y Tilt": 127,
 	},
 	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
 	},
 	physical_maxs = {
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
 		"X": 1575,
 		"Y": 984,
 	},

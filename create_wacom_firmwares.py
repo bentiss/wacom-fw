@@ -111,12 +111,20 @@ class Wacom(devices.Wacom):
 		items.insert(0, tag | size)
 		return items
 
-	def create_unit(self):
-		items = [
-			0x55, 0x0e, # Unit Exponent (-2)
-			0x65, 0x11, # Unit (Centimeter,SILinear)
-			]
-		return items
+	def create_unit(self, usage):
+		usage = parse_hid.get_usage(usage)
+		usage = usage.split(" << ")[0]
+		if usage in ("X", "Y", "Z", "Width", "Height"):
+			return [
+				0x55, 0x0e, # Unit Exponent (-2)
+				0x65, 0x11, # Unit (Centimeter,SILinear)
+				]
+		elif usage in ("RX", "RY", "RZ", "X Tilt", "Y Tilt", "Twist"):
+			return [
+				0x55, 0x00, # Unit Exponent (0)
+				0x65, 0x14, # Unit (Degrees,EngRotation)
+				]
+		return []
 
 
 	def __complete_min_max(self):
@@ -164,7 +172,7 @@ class Wacom(devices.Wacom):
 							current_l_min = lmin
 							current_l_max = lmax
 						if current_p_min != pmin or current_p_max != pmax:
-							self.raw_rdesc.extend(self.create_unit())
+							self.raw_rdesc.extend(self.create_unit(usage))
 							self.raw_rdesc.extend(self.create_min_max("Physical Minimum", pmin))
 							self.raw_rdesc.extend(self.create_min_max("Physical Maximum", pmax))
 							current_p_min = pmin
