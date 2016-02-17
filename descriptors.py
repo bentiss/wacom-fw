@@ -863,7 +863,7 @@ bpt3_pen_msg = (
 	0x95, 0x02,			#    Report Count (2)
 	0x81, 0x02,			#    Input (Data,Var,Abs)
 	0x05, 0x0d,			#    Usage Page (Digitizers)
-	0x09, 0x43,			#    Usage (Secondary Tip Switch)
+	0x09, 0x3c,			#    Usage (Invert)
 	0x95, 0x01,			#    Report Count (1)
 	0x81, 0x02,			#    Input (Data,Var,Abs)
 	0x81, 0x01,			#    Input (Cnst,Arr,Abs)
@@ -890,6 +890,33 @@ bpt3_pen_msg = (
 	0x95, 0x01,			#    Report Count (1)
 	0xb1, 0x02,			#    Feature (Data,Var,Abs)
 	0xc0,				#   End Collection
+	0xc0,				#  End Collection
+	0xc0,				# End Collection
+)
+
+force_indirect_device = (
+	0x05, 0x0d,			# Usage Page (Digitizers)
+	0x09, 0x02,			# Usage (Pen)
+	0xa1, 0x01,			# Collection (Application)
+
+	0x85, 0xf0,			#  Report ID (240)
+
+	0x05, 0x01,			# Usage Page (Generic Desktop)
+	0x09, 0x02,			#  Usage (Mouse)
+	0xa1, 0x00,			#  Collection (Physical)
+
+	0x05, 0x01,			#    Usage Page (Generic Desktop)
+	0x09, 0x30,			#    Usage (X)
+	0x75, 0x10,			#    Report Size (16)
+	0x95, 0x01,			#    Report Count (1)
+	0x81, 0x02,			#    Input (Data,Var,Abs)
+
+	0x05, 0x01,			#    Usage Page (Generic Desktop)
+	0x09, 0x31,			#    Usage (Y)
+	0x75, 0x10,			#    Report Size (16)
+	0x95, 0x01,			#    Report Count (1)
+	0x81, 0x02,			#    Input (Data,Var,Abs)
+
 	0xc0,				#  End Collection
 	0xc0,				# End Collection
 )
