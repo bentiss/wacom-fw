@@ -113,6 +113,82 @@ device_id_report_intuos3 = (
 	0xc0,				# End Collection
 )
 
+set_mode_intuos3 = (
+	0x05, 0x0d,			# Usage Page (Digitizers)
+	0x09, 0x02,			# Usage (Pen)
+	0xa1, 0x01,			# Collection (Application)
+	0x85, 0x02,			#  Report ID (2)
+	0x09, 0x01,			#  Usage (Digitizer)
+	0xa1, 0x00,			#  Collection (Physical)
+	0x05, 0x0d,			#   Usage Page (Digitizers)
+	0x09, 0x52,			#   Usage (Inputmode)
+	0x75, 0x08,			#   Report Size (8)
+	0x95, 0x01,			#   Report Count (1)
+	0xb1, 0x02,			#   Feature (Data,Var,Abs)
+	0xc0,				#  End Collection
+	0xc0,				# End Collection
+)
+
+device_id_report_cintiq13 = (
+	0x05, 0x0d,			# Usage Page (Digitizers)
+	0x09, 0x02,			# Usage (Pen)
+	0xa1, 0x01,			# Collection (Application)
+	0x85, 0x10,			#  Report ID (16)
+
+	0x09, 0x01,			#  Usage (Digitizer)
+	0xa1, 0x00,			#  Collection (Physical)
+
+	0x05, 0xbe,			#   Usage Page (Wacom Custom)
+	0x09, 0x05,			#   Usage (Intuos Sub Report ID)
+	0x75, 0x06,			#   Report Size (6)
+	0x95, 0x01,			#   Report Count (1)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+	0x05, 0x0d,			#   Usage Page (Digitizers)
+	0x09, 0x32,			#   Usage (In Range)
+	0x75, 0x01,			#   Report Size (1)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+	0x81, 0x01,			#   Input (Cnst,Arr,Abs)
+
+	0x06, 0x0d, 0xbe,		#   Usage Page (Digitizers + offset)
+	0x0a, 0x38, 0x04,		#   Usage (Transducer Index << 4)
+	0x75, 0x08,			#   Report Size (8)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x0a, 0x5b, 0x1c,		#   Usage (Transducer Serial Number << 28)
+	0x75, 0x04,			#   Report Size (4)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+	0x0a, 0x38, 0x00,		#   Usage (Transducer Index << 0)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x0a, 0x5b, 0x14,		#   Usage (Transducer Serial Number << 20)
+	0x75, 0x08,			#   Report Size (8)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x0a, 0x5b, 0x0c,		#   Usage (Transducer Serial Number << 12)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x0a, 0x5b, 0x04,		#   Usage (Transducer Serial Number << 4)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x0a, 0x38, 0x14,		#   Usage (Transducer Index << 20)
+	0x75, 0x04,			#   Report Size (4)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+	0x0a, 0x5b, 0x00,		#   Usage (Transducer Serial Number << 0)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0x75, 0x08,			#   Report Size (8)
+	0x81, 0x01,			#   Input (Cnst,Arr,Abs)
+
+	0x75, 0x04,			#   Report Size (4)
+	0x81, 0x01,			#   Input (Cnst,Arr,Abs)
+
+	0x0a, 0x38, 0x0c,		#   Usage (Transducer Index << 12)
+	0x81, 0x02,			#   Input (Data,Var,Abs)
+
+	0xc0,				#  End Collection
+	0xc0,				# End Collection
+)
+
 generic_stylus_intuos4 = (
 	0x05, 0x0d,			# Usage Page (Digitizers)
 	0x09, 0x02,			# Usage (Pen)
@@ -663,6 +739,51 @@ express_keys_touch_ring_cintiq_24HD = (
 
 	0xc0,				#  End Collection
 	0xc0,				# End Collection
+)
+
+express_keys_cintiq_13HD = (
+	0x05, 0x01,			#  Usage Page (Generic Desktop)
+	0x09, 0x02,			#  Usage (Mouse)
+	0xa1, 0x01,			#  Collection (Application)
+	0x85, 0x11,			#   Report ID (17)
+	0x09, 0x07,			#   Usage (Keypad)
+	0xa1, 0x00,			#   Collection (Physical)
+
+	0x75, 0x08,			#    Report Size (8)
+	0x95, 0x01,			#    Report Count (1)
+	0x81, 0x01,			#    Input (Cnst,Arr,Abs)
+
+	0x05, 0x01,			#    Usage Page (Generic Desktop)
+	0x09, 0x38,			#    Usage (Wheel)
+	0x75, 0x08,			#    Report Size (8)
+	0x95, 0x01,			#    Report Count (1)
+	0x15, 0x00,			#    Logical Minimum (0)
+	0x25, 0x47,			#    Logical Maximum (71)
+	0x81, 0x02,			#    Input (Data,Var,Abs)
+
+
+	0x05, 0x09,			#    Usage Page (Button)
+	0x09, 0x00,			#    Usage (Vendor Usage 0x00)
+	0x75, 0x01,			#    Report Size (1)
+	0x95, 0x01,			#    Report Count (1)
+	0x81, 0x02,			#    Input (Data,Var,Abs)
+
+	0x75, 0x07,			#    Report Size (7)
+	0x95, 0x01,			#    Report Count (1)
+	0x81, 0x01,			#    Input (Cnst,Arr,Abs)
+
+	0x19, 0x01,			#    Usage Minimum (1)
+	0x29, 0x08,			#    Usage Maximum (8)
+	0x75, 0x01,			#    Report Size (1)
+	0x95, 0x08,			#    Report Count (8)
+	0x81, 0x02,			#    Input (Data,Var,Abs)
+
+	0x75, 0x08,			#    Report Size (8)
+	0x95, 0x05,			#    Report Count (5)
+	0x81, 0x01,			#    Input (Cnst,Arr,Abs)
+
+	0xc0,				#   End Collection
+	0xc0,				#  End Collection
 )
 
 led_configuration_intuos5 = (

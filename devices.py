@@ -395,3 +395,43 @@ bambo_cth470_S_touch = Wacom(
 	},
 	original_reports = "29 06 00 ff 09 80 a1 02 85 02 75 08 95 3f 15 00 26 00 10 81 01 85 03 75 08 95 3f 81 01 c0",
 )
+
+cintiq_13HDT_pen = Wacom(
+	name = "Wacom Cintiq 13HD touch Pen",
+	product_id = 0x0333,
+	reports = (
+		set_mode_intuos3,
+		device_id_report_cintiq13,
+		generic_stylus_intuos4,
+		airbrush_report_inutos4,
+		artpen_report_intuos4,
+		express_keys_cintiq_13HD,
+	),
+	logical_mins = {
+		"X": 400,
+		"Y": 400,
+		"Twist": -900,
+	},
+	logical_maxs = {
+		"X": 59152,
+		"Y": 33448,
+		"Twist": 899,
+		"Wheel": 1023,
+		"Tip Pressure": 2047,
+		"Altitude": 63,
+		"X Tilt": 127,
+		"Y Tilt": 127,
+	},
+	physical_mins = {
+		"X Tilt": -64,
+		"Y Tilt": -64,
+	},
+	physical_maxs = {
+		"X": 2940,
+		"Y": 1650,
+		"Twist": 359,
+		"X Tilt": 63,
+		"Y Tilt": 63,
+	},
+	original_reports = "228 05 01 09 02 a1 01 85 01 09 01 a1 00 05 09 19 01 29 03 15 00 25 01 95 03 75 01 81 02 95 05 81 03 05 01 09 30 09 31 09 38 15 81 25 7f 75 08 95 03 81 06 c0 c0 06 0d ff 09 01 a1 01 85 10 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 11 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 c0 09 00 75 08 96 09 00 15 00 26 ff 00 81 02 85 02 09 00 95 01 b1 02 85 03 09 00 95 01 b1 02 85 05 09 00 95 08 b1 02 85 07 09 00 95 0f b1 02 85 08 09 00 95 04 b1 02 85 0a 09 00 95 02 b1 02 85 0b 09 00 95 01 b1 02 85 04 09 00 95 01 b1 02 85 0d 09 00 95 01 b1 02 85 0f 09 00 95 07 b1 02 85 10 09 00 95 03 b1 02 85 30 09 00 95 01 b1 02 85 cc 09 00 95 02 b1 02 85 40 09 00 95 02 b1 02 85 dd 09 00 95 01 b1 02 c0"
+)
