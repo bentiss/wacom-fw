@@ -480,7 +480,7 @@ artpen_report_intuos4 = (
 
 tablet_buttons_report_intuos4 = (
 	0x05, 0x01,			# Usage Page (Generic Desktop)
-	0x09, 0x02,			# Usage (Pen)
+	0x09, 0x02,			# Usage (Mouse)
 	0xa1, 0x01,			# Collection (Application)
 
 	0x85, 0x0c,			#  Report ID (12)
@@ -516,7 +516,7 @@ tablet_buttons_report_intuos4 = (
 
 express_keys_touch_ring_intuos5 = (
 	0x05, 0x01,			# Usage Page (Generic Desktop)
-	0x09, 0x02,			# Usage (Pen)
+	0x09, 0x02,			# Usage (Mouse)
 	0xa1, 0x01,			# Collection (Application)
 
 	0x85, 0x03,			#  Report ID (3)
@@ -611,7 +611,7 @@ express_keys_touch_ring_intuos5_s = (
 
 express_keys_touch_strip_cintiq_22HD = (
 	0x05, 0x01,			# Usage Page (Generic Desktop)
-	0x09, 0x02,			# Usage (Pen)
+	0x09, 0x02,			# Usage (Mouse)
 	0xa1, 0x01,			# Collection (Application)
 
 	0x85, 0x0c,			#  Report ID (12)
@@ -681,7 +681,7 @@ express_keys_touch_strip_cintiq_22HD = (
 
 express_keys_touch_ring_cintiq_24HD = (
 	0x05, 0x01,			# Usage Page (Generic Desktop)
-	0x09, 0x02,			# Usage (Pen)
+	0x09, 0x02,			# Usage (Mouse)
 	0xa1, 0x01,			# Collection (Application)
 
 	0x85, 0x0c,			#  Report ID (12)
